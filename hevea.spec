@@ -22,7 +22,7 @@ BuildRoot:	/tmp/%{name}-%{version}-root
 %define		_latexhevadir		%{_datadir}/texmf/tex/latex/%{name}
 
 %description
-HEVEA is a LaTeX to HTML translator.  The input language is a fairly
+HEVEA is a LaTeX to HTML translator. The input language is a fairly
 complete subset of LaTeX2e (old LaTeX style is also accepted) and the
 output language is HTML that is (hopefully) correct with respect to
 version 4.0 (transitional)
@@ -46,9 +46,8 @@ make \
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT{%{_latexhevadir},%{_datadir},%{_bindir}}
 
-install -d     $RPM_BUILD_ROOT%{_latexhevadir}
-install -d     $RPM_BUILD_ROOT{%{_datadir},%{_bindir}}
 make install \
 	LIBDIR=$RPM_BUILD_ROOT%{_datadir}/%{name} \
 	BINDIR=$RPM_BUILD_ROOT%{_bindir}
@@ -61,11 +60,8 @@ gzip    -9nf CHANGES README LICENSE
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post
-[ -x %{_bindir}/texhash ] && %{_bindir}/texhash
-
-%postun
-[ -x %{_bindir}/texhash ] && %{_bindir}/texhash
+%post   -p %{_bindir}/texhash
+%postun -p %{_bindir}/texhash
 
 %files
 %defattr(644,root,root,755)
