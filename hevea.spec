@@ -7,6 +7,7 @@ License:	Free
 Group:		Applications/Publishing/TeX
 Vendor:		Luc Maranget <Luc.Maranget@inria.fr>
 Source0:	ftp://ftp.inria.fr/INRIA/Projects/para/hevea/%{name}-%{version}.tar.gz
+# Source0-md5:	7961cf05d12ccea2fdc9d57918564a72
 Source1:	ftp://ftp.inria.fr/INRIA/Projects/para/hevea/%{name}-%{version}-manual.pdf
 URL:		http://para.inria.fr/~maranget/hevea/
 BuildRequires:	ocaml
