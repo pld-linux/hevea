@@ -5,12 +5,13 @@ Version:	1.04
 Release:	1
 Copyright:	free
 Group:		Applications/Publishing/TeX
+Group(de):	Applikationen/Publizieren/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
 URL:		http://para.inria.fr/~maranget/hevea/
 Vendor:		Luc Maranget <Luc.Maranget@inria.fr>
 Source0:	ftp://ftp.inria.fr/INRIA/Projects/para/hevea/%{name}-%{version}.tar.gz
 Source1:	ftp://ftp.inria.fr/INRIA/Projects/para/hevea/%{name}-%{version}-manual.tar.gz
-Patch0:		hevea-opt.patch
+Patch0:		%{name}-opt.patch
 BuildRequires:	ocaml
 BuildRequires:	tetex-latex
 BuildRequires:	tetex-dvips
@@ -51,10 +52,9 @@ install -d $RPM_BUILD_ROOT{%{_latexhevadir},%{_datadir},%{_bindir}}
 %{__make} install \
 	LIBDIR=$RPM_BUILD_ROOT%{_datadir}/%{name} \
 	BINDIR=$RPM_BUILD_ROOT%{_bindir}
-mv	$RPM_BUILD_ROOT%{_datadir}/%{name}/%{name}.sty \
+mv -f	$RPM_BUILD_ROOT%{_datadir}/%{name}/%{name}.sty \
 	$RPM_BUILD_ROOT%{_latexhevadir}
 
-strip $RPM_BUILD_ROOT%{_bindir}/* || :
 gzip -9nf CHANGES README LICENSE
 
 %clean
