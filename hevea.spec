@@ -1,18 +1,20 @@
 Summary:	LaTeX to html translator
-Summary(pl):	konwerter z LaTeXa do html'a
+Summary(pl):	Konwerter z LaTeXa do HTML-a
 Name:		hevea
 Version:	1.05
 Release:	1
-Copyright:	free
+License:	free
 Group:		Applications/Publishing/TeX
 Group(de):	Applikationen/Publizieren/TeX
+Group(es):	Aplicaciones/Editoración/TeX
 Group(pl):	Aplikacje/Publikowanie/TeX
-URL:		http://para.inria.fr/~maranget/hevea/
+Group(pt_BR):	Aplicações/Editoração/TeX
 Vendor:		Luc Maranget <Luc.Maranget@inria.fr>
 Source0:	ftp://ftp.inria.fr/INRIA/Projects/para/hevea/%{name}-%{version}.tar.gz
 Source1:	ftp://ftp.inria.fr/INRIA/Projects/para/hevea/%{name}-%{version}-manual.tar.gz
 Source2:	ftp://ftp.inria.fr/INRIA/Projects/para/hevea/%{name}-%{version}-manual.ps.gz
 Patch0:		%{name}-opt.patch
+URL:		http://para.inria.fr/~maranget/hevea/
 BuildRequires:	ocaml
 BuildRequires:	tetex-latex
 BuildRequires:	tetex-dvips
@@ -36,34 +38,39 @@ akceptowany), a pliki wynikowe HTML s± zgodne ze standardem 4.0.
 
 %package doc-ps
 Summary:	PostScript documentation for Hevea
-Summary(pl):	Dokumentacja dla Hevea w formacie PostSript
+Summary(pl):	Dokumentacja dla Hevea w formacie PostScript
 Group:		Development/Tools
+Group(de):	Entwicklung/Werkzeuge
+Group(fr):	Development/Outils
+Group(pl):	Programowanie/Narzêdzia
 Requires:	%{name} = %{version}
 
 %description doc-ps
-PostScript documentation for OCaml
+PostScript documentation for Hevea.
 
 %description doc-ps -l pl
-Dokumentacja dla OCaml-a w formacie PostSript
+Dokumentacja dla Hevea w formacie PostScript.
 
 %package doc-html
 Summary:	HTML documentation for Hevea
 Summary(pl):	Dokumentacja dla Hevea w formacie HTML
 Group:		Development/Tools
+Group(de):	Entwicklung/Werkzeuge
+Group(fr):	Development/Outils
+Group(pl):	Programowanie/Narzêdzia
 Requires:	%{name} = %{version}
 
 %description doc-html
-PostScript documentation for Hevea
+HTML documentation for Hevea.
 
 %description doc-html -l pl
-Dokumentacja dla Hevea w formacie PostSript
+Dokumentacja dla Hevea w formacie PostScript.
 
 %prep 
-%setup -q
-%patch0 -p1
 %setup -q -a1
-cp %{SOURCE2} manual.ps.gz
-mv %{name}-%{version}-manual manual
+%patch0 -p1
+cp -f %{SOURCE2} manual.ps.gz
+mv -f %{name}-%{version}-manual manual
 
 %build
 %{__make} \
@@ -79,6 +86,7 @@ install -d $RPM_BUILD_ROOT{%{_latexhevadir},%{_datadir},%{_bindir}}
 %{__make} install \
 	LIBDIR=$RPM_BUILD_ROOT%{_datadir}/%{name} \
 	BINDIR=$RPM_BUILD_ROOT%{_bindir}
+
 mv -f	$RPM_BUILD_ROOT%{_datadir}/%{name}/%{name}.sty \
 	$RPM_BUILD_ROOT%{_latexhevadir}
 
@@ -99,7 +107,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_latexhevadir}/*.sty
 
 %files doc-html
+%defattr(644,root,root,755)
 %doc *.ps.gz
 
 %files doc-ps
+%defattr(644,root,root,755)
 %doc manual
