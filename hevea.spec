@@ -27,8 +27,8 @@ output language is HTML that is (hopefully) correct with respect to
 version 4.0 (transitional).
 
 %description -l pl
-HEVEA to translator dokumentów LaTeXa do HTML. Pliki wej¶ciowe powinny
-sk³adaæ siê z komend LaTeX2e (stary styl LaTeXa równie¿ jest
+HEVEA to translator dokumentów LaTeXa do HTML-a. Pliki wej¶ciowe
+powinny sk³adaæ siê z komend LaTeX2e (stary styl LaTeXa równie¿ jest
 akceptowany), a pliki wynikowe HTML s± zgodne ze standardem 4.0.
 
 %prep
