@@ -15,8 +15,8 @@ BuildRequires:	ocaml
 BuildRequires:	tetex-latex
 BuildRequires:	tetex-dvips
 Requires:	ghostscript >= 4.03
-Requires:       tetex-latex >= 0.4
-Requires:       tetex-dvips >= 0.4
+Requires:	tetex-latex >= 0.4
+Requires:	tetex-dvips >= 0.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_latexhevadir		%{_datadir}/texmf/tex/latex/%{name}
@@ -29,8 +29,8 @@ version 4.0 (transitional)
 
 %description -l pl
 HEVEA to translator dokumentów LaTeXa do HTML. Pliki wej¶ciowe powinny
-sk³adaæ siê z komend LaTeX2e (stary styl LaTeXa równie¿ jest akceptowany),
-a pliki wynikowe HTML s± zgodne ze standardem 4.0.
+sk³adaæ siê z komend LaTeX2e (stary styl LaTeXa równie¿ jest
+akceptowany), a pliki wynikowe HTML s± zgodne ze standardem 4.0.
 
 %prep 
 %setup -q
@@ -54,8 +54,8 @@ make install \
 mv	$RPM_BUILD_ROOT%{_datadir}/%{name}/%{name}.sty \
 	$RPM_BUILD_ROOT%{_latexhevadir}
 
-strip   $RPM_BUILD_ROOT%{_bindir}/* || :
-gzip    -9nf CHANGES README LICENSE
+strip $RPM_BUILD_ROOT%{_bindir}/* || :
+gzip -9nf CHANGES README LICENSE
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -68,5 +68,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.gz %{name}-%{version}-manual/*
 %attr(-,  root,root) %{_datadir}/%{name}
 %attr(755,root,root) %dir %{_latexhevadir}
-%attr(644,root,root) %{_latexhevadir}/*.sty
 %attr(755,root,root) %{_bindir}/*
+%{_latexhevadir}/*.sty
