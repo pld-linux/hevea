@@ -32,7 +32,7 @@ sk³adaæ siê z komend LaTeX2e (stary styl LaTeXa równie¿ jest
 akceptowany), a pliki wynikowe HTML s± zgodne ze standardem 4.0.
 
 %prep
-%setup
+%setup -q
 cp -f %{SOURCE1} manual.pdf
 
 %build
