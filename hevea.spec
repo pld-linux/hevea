@@ -5,10 +5,6 @@ Version:	1.05
 Release:	3
 License:	free
 Group:		Applications/Publishing/TeX
-Group(de):	Applikationen/Publizieren/TeX
-Group(es):	Aplicaciones/Editoración/TeX
-Group(pl):	Aplikacje/Publikowanie/TeX
-Group(pt_BR):	Aplicações/Editoração/TeX
 Vendor:		Luc Maranget <Luc.Maranget@inria.fr>
 Source0:	ftp://ftp.inria.fr/INRIA/Projects/para/hevea/%{name}-%{version}.tar.gz
 Source1:	ftp://ftp.inria.fr/INRIA/Projects/para/hevea/%{name}-%{version}-manual.tar.gz
@@ -40,9 +36,6 @@ akceptowany), a pliki wynikowe HTML s± zgodne ze standardem 4.0.
 Summary:	PostScript documentation for Hevea
 Summary(pl):	Dokumentacja dla Hevea w formacie PostScript
 Group:		Development/Tools
-Group(de):	Entwicklung/Werkzeuge
-Group(fr):	Development/Outils
-Group(pl):	Programowanie/Narzêdzia
 Requires:	%{name} = %{version}
 
 %description doc-ps
@@ -55,9 +48,6 @@ Dokumentacja dla Hevea w formacie PostScript.
 Summary:	HTML documentation for Hevea
 Summary(pl):	Dokumentacja dla Hevea w formacie HTML
 Group:		Development/Tools
-Group(de):	Entwicklung/Werkzeuge
-Group(fr):	Development/Outils
-Group(pl):	Programowanie/Narzêdzia
 Requires:	%{name} = %{version}
 
 %description doc-html
