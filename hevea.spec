@@ -23,7 +23,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 HEVEA is a LaTeX to HTML translator. The input language is a fairly
 complete subset of LaTeX2e (old LaTeX style is also accepted) and the
 output language is HTML that is (hopefully) correct with respect to
-version 4.0 (transitional)
+version 4.0 (transitional).
 
 %description -l pl
 HEVEA to translator dokumentów LaTeXa do HTML. Pliki wej¶ciowe powinny
