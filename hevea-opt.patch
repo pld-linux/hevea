@@ -1,0 +1,17 @@
+diff -urN hevea-1.04.org/Makefile hevea-1.04/Makefile
+--- hevea-1.04.org/Makefile	Fri Mar 24 16:12:22 2000
++++ hevea-1.04/Makefile	Fri Mar 24 16:13:26 2000
+@@ -6,11 +6,11 @@
+ # Where to install programms
+ BINDIR=/usr/local/bin
+ # A replacement for /lib/cpp
+-CPP=gcc -E -P -x c 
++CPP="gcc -E -P -x c $(OPT)"
+ ############### End of configuration parameters
+ 
+ HEVEA=./hevea.$(TARGET)
+-OCAMLC=ocamlc -g
++OCAMLC=ocamlc
+ OCAMLCI=ocamlc
+ OCAMLOPT=ocamlopt
+ OCAMLLEX=ocamllex
