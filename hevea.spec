@@ -9,7 +9,6 @@ Vendor:		Luc Maranget <Luc.Maranget@inria.fr>
 Source0:	ftp://ftp.inria.fr/INRIA/Projects/para/hevea/%{name}-%{version}.tar.gz
 Source1:	ftp://ftp.inria.fr/INRIA/Projects/para/hevea/%{name}-%{version}-manual.tar.gz
 Source2:	ftp://ftp.inria.fr/INRIA/Projects/para/hevea/%{name}-%{version}-manual.ps.gz
-#Patch0:		%{name}-opt.patch
 URL:		http://para.inria.fr/~maranget/hevea/
 BuildRequires:	ocaml
 BuildRequires:	tetex-latex
@@ -19,7 +18,7 @@ Requires:	tetex-latex >= 0.4
 Requires:	tetex-dvips >= 0.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_latexhevadir		%{_datadir}/texmf/tex/latex/%{name}
+%define		_latexheveadir		%{_datadir}/texmf/tex/latex/%{name}
 
 %description
 HEVEA is a LaTeX to HTML translator. The input language is a fairly
@@ -58,7 +57,6 @@ Dokumentacja dla Hevea w formacie PostScript.
 
 %prep
 %setup -q -a1
-#%patch0 -p1
 cp -f %{SOURCE2} manual.ps.gz
 mv -f %{name}-%{version}-manual manual
 
@@ -66,19 +64,18 @@ mv -f %{name}-%{version}-manual manual
 %{__make} \
 	TARGET=opt \
 	LIBDIR=%{_datadir}/%{name} \
-	BINDIR=%{_bindir} \
-	OPT="%{rpmcflags}"
+	BINDIR=%{_bindir}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_latexhevadir},%{_datadir},%{_bindir}}
+install -d $RPM_BUILD_ROOT{%{_latexheveadir},%{_datadir},%{_bindir}}
 
 %{__make} install \
 	LIBDIR=$RPM_BUILD_ROOT%{_datadir}/%{name} \
 	BINDIR=$RPM_BUILD_ROOT%{_bindir}
 
 mv -f	$RPM_BUILD_ROOT%{_datadir}/%{name}/%{name}.sty \
-	$RPM_BUILD_ROOT%{_latexhevadir}
+	$RPM_BUILD_ROOT%{_latexheveadir}
 
 gzip -9nf CHANGES README LICENSE
 
@@ -92,9 +89,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc CHANGES.gz README.gz LICENSE.gz
 %attr(-,  root,root) %{_datadir}/%{name}
-%attr(755,root,root) %dir %{_latexhevadir}
+%attr(755,root,root) %dir %{_latexheveadir}
 %attr(755,root,root) %{_bindir}/*
-%{_latexhevadir}/*.sty
+%{_latexheveadir}/*.sty
 
 %files doc-ps
 %defattr(644,root,root,755)
