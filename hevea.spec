@@ -56,7 +56,7 @@ HTML documentation for Hevea.
 %description doc-html -l pl
 Dokumentacja dla Hevea w formacie PostScript.
 
-%prep 
+%prep
 %setup -q -a1
 #%patch0 -p1
 cp -f %{SOURCE2} manual.ps.gz
