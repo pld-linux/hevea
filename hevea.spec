@@ -3,7 +3,7 @@ Summary(pl):	Konwerter z LaTeXa do HTML-a
 Name:		hevea
 Version:	1.05
 Release:	3
-License:	free
+License:	Free
 Group:		Applications/Publishing/TeX
 Vendor:		Luc Maranget <Luc.Maranget@inria.fr>
 Source0:	ftp://ftp.inria.fr/INRIA/Projects/para/hevea/%{name}-%{version}.tar.gz
