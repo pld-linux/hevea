@@ -17,7 +17,7 @@ BuildRequires:	tetex-dvips
 Requires:	ghostscript >= 4.03
 Requires:       tetex-latex >= 0.4
 Requires:       tetex-dvips >= 0.4
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_latexhevadir		%{_datadir}/texmf/tex/latex/%{name}
 
