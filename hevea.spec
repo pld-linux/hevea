@@ -7,8 +7,7 @@ License:	Free
 Group:		Applications/Publishing/TeX
 Vendor:		Luc Maranget <Luc.Maranget@inria.fr>
 Source0:	ftp://ftp.inria.fr/INRIA/Projects/para/hevea/%{name}-%{version}.tar.gz
-Source1:	ftp://ftp.inria.fr/INRIA/Projects/para/hevea/%{name}-%{version}-manual.tar.gz
-Source2:	ftp://ftp.inria.fr/INRIA/Projects/para/hevea/%{name}-%{version}-manual.ps.gz
+Source1:	ftp://ftp.inria.fr/INRIA/Projects/para/hevea/%{name}-%{version}-manual.pdf
 URL:		http://para.inria.fr/~maranget/hevea/
 BuildRequires:	ocaml
 BuildRequires:	tetex-latex
@@ -31,34 +30,9 @@ HEVEA to translator dokumentów LaTeXa do HTML. Pliki wej¶ciowe powinny
 sk³adaæ siê z komend LaTeX2e (stary styl LaTeXa równie¿ jest
 akceptowany), a pliki wynikowe HTML s± zgodne ze standardem 4.0.
 
-%package doc-ps
-Summary:	PostScript documentation for Hevea
-Summary(pl):	Dokumentacja dla Hevea w formacie PostScript
-Group:		Development/Tools
-Requires:	%{name} = %{version}
-
-%description doc-ps
-PostScript documentation for Hevea.
-
-%description doc-ps -l pl
-Dokumentacja dla Hevea w formacie PostScript.
-
-%package doc-html
-Summary:	HTML documentation for Hevea
-Summary(pl):	Dokumentacja dla Hevea w formacie HTML
-Group:		Development/Tools
-Requires:	%{name} = %{version}
-
-%description doc-html
-HTML documentation for Hevea.
-
-%description doc-html -l pl
-Dokumentacja dla Hevea w formacie PostScript.
-
 %prep
-%setup -q -a1
-cp -f %{SOURCE2} manual.ps.gz
-mv -f %{name}-%{version}-manual manual
+%setup
+cp -f %{SOURCE1} manual.pdf
 
 %build
 %{__make} \
@@ -85,16 +59,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc CHANGES README LICENSE
+%doc CHANGES README LICENSE manual.pdf
 %attr(-,  root,root) %{_datadir}/%{name}
 %attr(755,root,root) %dir %{_latexheveadir}
 %attr(755,root,root) %{_bindir}/*
 %{_latexheveadir}/*.sty
-
-%files doc-ps
-%defattr(644,root,root,755)
-%doc *.ps.gz
-
-%files doc-html
-%defattr(644,root,root,755)
-%doc manual
