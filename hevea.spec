@@ -38,7 +38,7 @@ akceptowany), a pliki wynikowe HTML s± zgodne ze standardem 4.0.
 %setup -q -a1
 
 %build
-make \
+%{__make} \
 	TARGET=opt \
 	LIBDIR=%{_datadir}/%{name} \
 	BINDIR=%{_bindir} \
@@ -48,7 +48,7 @@ make \
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_latexhevadir},%{_datadir},%{_bindir}}
 
-make install \
+%{__make} install \
 	LIBDIR=$RPM_BUILD_ROOT%{_datadir}/%{name} \
 	BINDIR=$RPM_BUILD_ROOT%{_bindir}
 mv	$RPM_BUILD_ROOT%{_datadir}/%{name}/%{name}.sty \
