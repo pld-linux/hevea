@@ -2,7 +2,7 @@ Summary:	LaTeX to html translator
 Summary(pl):	Konwerter z LaTeXa do HTML-a
 Name:		hevea
 Version:	1.05
-Release:	1
+Release:	2
 License:	free
 Group:		Applications/Publishing/TeX
 Group(de):	Applikationen/Publizieren/TeX
@@ -13,7 +13,7 @@ Vendor:		Luc Maranget <Luc.Maranget@inria.fr>
 Source0:	ftp://ftp.inria.fr/INRIA/Projects/para/hevea/%{name}-%{version}.tar.gz
 Source1:	ftp://ftp.inria.fr/INRIA/Projects/para/hevea/%{name}-%{version}-manual.tar.gz
 Source2:	ftp://ftp.inria.fr/INRIA/Projects/para/hevea/%{name}-%{version}-manual.ps.gz
-Patch0:		%{name}-opt.patch
+#Patch0:		%{name}-opt.patch
 URL:		http://para.inria.fr/~maranget/hevea/
 BuildRequires:	ocaml
 BuildRequires:	tetex-latex
@@ -68,7 +68,7 @@ Dokumentacja dla Hevea w formacie PostScript.
 
 %prep 
 %setup -q -a1
-%patch0 -p1
+#%patch0 -p1
 cp -f %{SOURCE2} manual.ps.gz
 mv -f %{name}-%{version}-manual manual
 
