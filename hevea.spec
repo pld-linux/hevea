@@ -1,8 +1,8 @@
 Summary:	LaTeX to html translator
 Summary(pl):	Konwerter z LaTeXa do HTML-a
 Name:		hevea
-Version:	1.05
-Release:	3
+Version:	1.06
+Release:	1
 License:	Free
 Group:		Applications/Publishing/TeX
 Vendor:		Luc Maranget <Luc.Maranget@inria.fr>
@@ -77,8 +77,6 @@ install -d $RPM_BUILD_ROOT{%{_latexheveadir},%{_datadir},%{_bindir}}
 mv -f	$RPM_BUILD_ROOT%{_datadir}/%{name}/%{name}.sty \
 	$RPM_BUILD_ROOT%{_latexheveadir}
 
-gzip -9nf CHANGES README LICENSE
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -87,7 +85,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc CHANGES.gz README.gz LICENSE.gz
+%doc CHANGES README LICENSE
 %attr(-,  root,root) %{_datadir}/%{name}
 %attr(755,root,root) %dir %{_latexheveadir}
 %attr(755,root,root) %{_bindir}/*
