@@ -1,5 +1,5 @@
-Summary:	latex to html translator
-Summary:	konwerter z latex'a do html'a
+Summary:	LaTeX to html translator
+Summary(pl):	konwerter z LaTeXa do html'a
 Name:		hevea
 Version:	1.04
 Release:	1
@@ -43,7 +43,7 @@ akceptowany), a pliki wynikowe HTML s± zgodne ze standardem 4.0.
 	TARGET=opt \
 	LIBDIR=%{_datadir}/%{name} \
 	BINDIR=%{_bindir} \
-	OPT="$RPM_OPT_FLAGS"
+	OPT="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
