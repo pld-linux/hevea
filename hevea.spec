@@ -1,5 +1,5 @@
 Summary:	LaTeX to html translator
-Summary(pl):	Konwerter z LaTeXa do HTML-a
+Summary(pl.UTF-8):   Konwerter z LaTeXa do HTML-a
 Name:		hevea
 Version:	1.06
 Release:	3
@@ -26,10 +26,10 @@ complete subset of LaTeX2e (old LaTeX style is also accepted) and the
 output language is HTML that is (hopefully) correct with respect to
 version 4.0 (transitional).
 
-%description -l pl
-HEVEA to translator dokumentów LaTeXa do HTML-a. Pliki wej¶ciowe
-powinny sk³adaæ siê z komend LaTeX2e (stary styl LaTeXa równie¿ jest
-akceptowany), a pliki wynikowe HTML s± zgodne ze standardem 4.0.
+%description -l pl.UTF-8
+HEVEA to translator dokumentÃ³w LaTeXa do HTML-a. Pliki wejÅ›ciowe
+powinny skÅ‚adaÄ‡ siÄ™ z komend LaTeX2e (stary styl LaTeXa rÃ³wnieÅ¼ jest
+akceptowany), a pliki wynikowe HTML sÄ… zgodne ze standardem 4.0.
 
 %prep
 %setup -q
