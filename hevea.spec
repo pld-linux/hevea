@@ -1,5 +1,5 @@
 Summary:	LaTeX to html translator
-Summary(pl.UTF-8):   Konwerter z LaTeXa do HTML-a
+Summary(pl.UTF-8):	Konwerter z LaTeXa do HTML-a
 Name:		hevea
 Version:	1.06
 Release:	3
