@@ -2,7 +2,7 @@ Summary:	LaTeX to html translator
 Summary(pl.UTF-8):	Konwerter z LaTeXa do HTML-a
 Name:		hevea
 Version:	1.06
-Release:	3
+Release:	4
 License:	Free
 Group:		Applications/Publishing/TeX
 Vendor:		Luc Maranget <Luc.Maranget@inria.fr>
