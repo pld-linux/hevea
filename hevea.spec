@@ -1,21 +1,22 @@
 Summary:	LaTeX to html translator
 Summary(pl.UTF-8):	Konwerter z LaTeXa do HTML-a
 Name:		hevea
-Version:	1.06
-Release:	4
+Version:	1.10
+Release:	1
 License:	Free
 Group:		Applications/Publishing/TeX
 Vendor:		Luc Maranget <Luc.Maranget@inria.fr>
-Source0:	ftp://ftp.inria.fr/INRIA/Projects/para/hevea/%{name}-%{version}.tar.gz
-# Source0-md5:	7961cf05d12ccea2fdc9d57918564a72
-Source1:	ftp://ftp.inria.fr/INRIA/Projects/para/hevea/%{name}-%{version}-manual.pdf
+Source0:	http://para.inria.fr/~maranget/hevea/distri/%{name}-%{version}.tar.gz
+# Source0-md5:	24a631570bee3cc4b8350e9db39be62b
+Source1:	http://para.inria.fr/~maranget/hevea/distri/%{name}-%{version}-manual.pdf
+# Source1-md5:	d9cc1d90aa85e0149a058b7fe7d5a9dd
 URL:		http://para.inria.fr/~maranget/hevea/
 BuildRequires:	ocaml >= 3.09.0
-BuildRequires:	tetex-latex
-BuildRequires:	tetex-dvips
+BuildRequires:	texlive-latex
+BuildRequires:	texlive-dvips
 Requires:	ghostscript >= 4.03
-Requires:	tetex-latex >= 0.4
-Requires:	tetex-dvips >= 0.4
+Requires:	texlive-latex >= 0.4
+Requires:	texlive-dvips >= 0.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_latexheveadir		%{_datadir}/texmf/tex/latex/%{name}
@@ -34,23 +35,25 @@ akceptowany), a pliki wynikowe HTML są zgodne ze standardem 4.0.
 %prep
 %setup -q
 cp -f %{SOURCE1} manual.pdf
+%{__rm} config.sh
 
 %build
-%{__make} \
+%{__make} config.sh \
 	TARGET=opt \
+	PREFIX=%{_prefix} \
 	LIBDIR=%{_datadir}/%{name} \
-	BINDIR=%{_bindir}
+	LATEXLIBDIR=%{_latexheveadir} \
+	BINDIR=%{_bindir} \
+	DESTDIR=$RPM_BUILD_ROOT
+
+%{__make} \
+	TARGET=opt
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_latexheveadir},%{_datadir},%{_bindir}}
 
-%{__make} install \
-	LIBDIR=$RPM_BUILD_ROOT%{_datadir}/%{name} \
-	BINDIR=$RPM_BUILD_ROOT%{_bindir}
-
-mv -f	$RPM_BUILD_ROOT%{_datadir}/%{name}/%{name}.sty \
-	$RPM_BUILD_ROOT%{_latexheveadir}
+%{__make} install
 
 %clean
 rm -rf $RPM_BUILD_ROOT
