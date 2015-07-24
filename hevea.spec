@@ -16,7 +16,7 @@ License:	Free
 Group:		Applications/Publishing/TeX
 Source0:	http://para.inria.fr/~maranget/hevea/old/%{name}-%{version}.tar.gz
 # Source0-md5:	38b157e78e8171dc6a47f9ea10d2bd60
-Source1:	http://para.inria.fr/~maranget/hevea/%{name}-2.24-manual.pdf
+Source1:	http://para.inria.fr/~maranget/hevea/distri/%{name}-2.24-manual.pdf
 # Source1-md5:	82414eb9bd85b69d8ae78e58c99d12c4
 URL:		http://para.inria.fr/~maranget/hevea/
 BuildRequires:	ocaml >= 3.12.0
